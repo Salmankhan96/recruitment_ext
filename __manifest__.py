@@ -1,7 +1,7 @@
 {
-    'name': 'Naukri API Integration',
+    'name': 'Recruitment Extension ',
     'version': '1.0',
-    'summary': 'Post Jobs to Naukri from Odoo Recruitment',
+    'summary': 'Recruitment Extension',
     'depends': ['hr','website_payment','hr_recruitment','mail'],
     'data': [
         'security/ir.model.access.csv',
