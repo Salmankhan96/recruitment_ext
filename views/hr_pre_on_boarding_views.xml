@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- Tree View -->
+    <record id="view_hr_pre_onboarding_tree" model="ir.ui.view">
+      <field name="name">hr.pre.onboarding.tree</field>
+      <field name="model">hr.pre.onboarding</field>
+      <field name="arch" type="xml">
+        <tree string="Pre-Onboarding">
+          <field name="name"/>
+          <field name="email"/>
+          <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_hr_pre_onboarding_form" model="ir.ui.view">
+      <field name="name">hr.pre.onboarding.form</field>
+      <field name="model">hr.pre.onboarding</field>
+      <field name="arch" type="xml">
+        <form string="Pre-Onboarding">
+          <sheet>
+            <group>
+                <group>
+                    <field name="name"/>
+                      <field name="email"/>
+                      <field name="designation"/>
+                      <field name="department"/>
+                      <field name="salary"/>
+                </group>
+                <group>
+                    <field name="location"/>
+                      <field name="date_of_joining"/>
+                      <field name="state"/>
+                </group>
+            </group>
+
+
+            <group string="Upload Documents">
+                <group>
+                     <field name="duly_sign_copy_of_emp"/>
+                      <field name="resume_duly_sign_with_photo"/>
+                      <field name="all_educational_certificate_with_10th_12th"/>
+                      <field name="all_merits_certificate_diploma"/>
+                      <field name="acceptance_of_resign_letter"/>
+                      <field name="copy_of_relieving_letter"/>
+                     <field name="last_three_months_salary_slip"/>
+                </group>
+                 <group>
+                      <field name="six_month_bank_statement"/>
+                      <field name="previous_company_form16"/>
+                      <field name="address_proof"/>
+                      <field name="id_proof"/>
+                      <field name="passport_size_photo"/>
+                      <field name="acceptance_of_offer_letter"/>
+                      <field name="fitness_certificate"/>
+                 </group>
+            </group>
+
+<!--            <group string="HR Remarks">-->
+<!--              <field name="hr_comment"/>-->
+<!--            </group>-->
+
+            <footer>
+              <button name="action_mark_verified" type="object" string="Mark as Verified" class="btn-primary" invisible="state!='accepted'"/>
+<!--              <button name="action_reject" type="object" string="Reject" class="btn-danger"-->
+                confirm="⚠ Are you sure you want to reject this offer?" invisible="state!='pending'"/>
+            </footer>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_hr_pre_onboarding" model="ir.actions.act_window">
+      <field name="name">Pre-Onboarding</field>
+      <field name="res_model">hr.pre.onboarding</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          No pre-onboarding records yet.
+        </p>
+      </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_hr_pre_onboarding_root"
+              name="Pre-Onboarding"
+              parent="hr_recruitment.menu_hr_recruitment_root"
+              sequence="50"/>
+
+    <menuitem id="menu_hr_pre_onboarding"
+              name="Pre-Onboarding"
+              parent="menu_hr_pre_onboarding_root"
+              action="action_hr_pre_onboarding"
+              sequence="10"/>
+
+  </data>
+</odoo>

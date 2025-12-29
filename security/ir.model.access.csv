@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_applicant_custom,access.hr.applicant.custom,model_hr_applicant,base.group_user,1,1,1,0
+access_hr_skill,access.hr.skill,model_hr_skill,base.group_user,1,1,1,1
+access_hr_skill_type,access.hr.skill.type,model_hr_skill_type,base.group_user,1,1,1,1
+access_hr_education,access.hr.education,model_hr_education,base.group_user,1,1,1,1
+access_hr_experience,access.hr.experience,model_hr_experience,base.group_user,1,1,1,1
+access_hr_job_custom,access.hr.job.custom,model_hr_job,hr.group_hr_user,1,1,1,1
+access_send_template_wizard,access.send.template.wizard,model_send_template_wizard,base.group_user,1,1,1,0
+access_hr_pre_onboarding,access.hr.pre.onboarding,model_hr_pre_onboarding,,1,1,1,1
+access_employee_checklist,access.employee.checklist,model_employee_checklist,,1,1,1,1
+access_hr_employee_email_wizard,hr.employee.email.wizard.user,model_hr_employee_email_wizard,,1,1,1,1

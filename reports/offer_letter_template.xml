@@ -1,0 +1,91 @@
+<odoo>
+    <template id="offer_letter_template">
+        <t t-name="recruitment_ext.offer_letter_template">
+            <t t-call="web.external_layout">
+                <main class="o_report_layout">
+
+                    <!-- Title -->
+                    <div class="text-center" style="font-size: 24px; margin-top: 50px;">
+                        <strong>Offer Letter</strong>
+                    </div>
+
+                    <!-- Offer Date -->
+                    <t t-if="docs.offer_date">
+                        <p style="margin-top: 40px;">Date: <t t-esc="docs.offer_date"/></p>
+                    </t>
+
+                    <!-- Candidate Name and Address -->
+                    <t t-if="docs.partner_name">
+                        <p>To,</p>
+                        <p><strong><t t-esc="docs.partner_name"/></strong></p>
+                    </t>
+                    <t t-if="docs.candidate_address">
+                        <p><t t-esc="docs.candidate_address"/></p>
+                    </t>
+
+                    <p>Subject: Offer of Employment</p>
+
+                    <!-- Greeting -->
+                    <p>
+                        Dear
+                        <t t-if="docs.partner_name">
+                            <t t-esc="docs.partner_name"/>
+                        </t>
+                        <t t-else="">Candidate</t>,
+                    </p>
+
+                    <!-- Job Title (from name) and Company -->
+                    <t t-if="docs.name">
+                        <p>
+                            We are pleased to offer you the position of
+                            <strong><t t-esc="docs.name"/></strong>
+                            <t t-if="docs.company_id.name"> at
+                                <strong><t t-esc="docs.company_id.name"/></strong>
+                            </t>.
+                        </p>
+                    </t>
+
+                    <!-- Salary -->
+                    <t t-if="docs.salary_package">
+                        <p>
+                            Your total annual CTC will be
+                            <strong>INR <t t-esc="docs.salary_package"/></strong>.
+                        </p>
+                    </t>
+
+                    <!-- Joining Date and Location -->
+                    <t t-if="docs.joining_date">
+                        <p>
+                            You are expected to join us on
+                            <strong><t t-esc="docs.joining_date"/></strong>
+                            <t t-if="docs.office_address"> at our
+                                <t t-esc="docs.office_address"/> office.
+                            </t>
+                        </p>
+                    </t>
+
+                    <!-- Standard Message -->
+                    <p>
+                        The detailed terms and conditions of your employment will be shared on your joining date.
+                    </p>
+                    <p>
+                        We look forward to having you on board. Please confirm your acceptance of this offer by replying to this letter.
+                    </p>
+
+                    <!-- Sign-off -->
+                    <p>Sincerely,</p>
+
+                    <t t-if="docs.hr_name">
+                        <p><strong><t t-esc="docs.hr_name"/></strong></p>
+                    </t>
+                    <p>HR Department</p>
+
+                    <t t-if="docs.company_id.name">
+                        <p><t t-esc="docs.company_id.name"/></p>
+                    </t>
+
+                </main>
+            </t>
+        </t>
+    </template>
+</odoo>

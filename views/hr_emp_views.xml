@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="action_hr_employee_email_wizard" model="ir.actions.act_window">
+        <field name="name">Send Email with Document</field>
+        <field name="res_model">hr.employee.email.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="hr.model_hr_employee"/>
+        <field name="context">{
+            'default_employee_id': active_id,
+        }</field>
+    </record>
+
+    <record id="hr_employee_view_form_inherit_checklists" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.checklist</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                 <page string="Onboarding Checklist">
+                     <div id="o_work_employee_container" class="d-lg-flex">
+                         <div id="o_work_employee_main" class="flex-grow-1">
+                            <group string="Asset Allocation">
+                                <group>
+                                    <field name="checklist_ids" string="On boarding Steps"/>
+                                </group>
+                                <group>
+                                    <field name="completed"/>
+                                </group>
+                            </group>
+                         </div>
+                     </div>
+                </page>
+                <page string="Onboarding Email">
+                    <group>
+                        <button name="%(action_hr_employee_email_wizard)d"
+                                string="Send Email with Document"
+                                type="action"
+                                class="oe_highlight"
+                                help="Send an email to the employee with an attached document."/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

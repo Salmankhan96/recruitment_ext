@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="hr_employee_email_wizard_form_view" model="ir.ui.view">
+        <field name="name">hr.employee.email.wizard.form</field>
+        <field name="model">hr.employee.email.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Send Email with Document">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" readonly="1" force_save="1"/>
+                            <field name="email_to" widget="email"/>
+                            <field name="mail_template_id" options="{'no_open': True, 'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="attachment_name" required="attachment_file!= False"/>
+                            <field name="attachment_file" filename="attachment_name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="email_subject"/>
+                        <field name="email_body_html" widget="html" options="{'fullpage': true}"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_send_email_with_attachment" string="Send Email" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

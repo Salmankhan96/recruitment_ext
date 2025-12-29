@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Offer Letter -->
+    <record id="mail_template_offer_letter" model="mail.template">
+        <field name="name">Offer Letter Email</field>
+        <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="partner_to">{{ object.partner_id and object.partner_id.id }}</field>
+        <field name="email_to">{{ (not object.partner_id and object.email_from) or '' }}</field>
+        <field name="email_cc">{{ object.email_cc or ''}}</field>
+        <field name="subject">Offer Letter</field>
+        <field name="body_html" type="html">
+            <div>
+                <div>
+                    <p>Dear <t t-out="object.partner_name"/>,
+                    </p>
+                    <t t-raw="object.note"/>
+                    <p>Please click the following link to accept the offer and upload required documents:</p>
+                    <p><a t-attf-href="/pre-onboarding/{{object.pre_onboarding_id[-1].id}}" target="_blank"> Complete Pre-Onboarding</a></p>
+                    <br/>
+                    <p>Best regards,<br/>HR Team
+                    </p>
+                </div>
+                <br/>
+                <t t-out="object.company_id.name"/>
+                <br/>
+            </div>
+        </field>
+        <field name="lang">${object.partner_id.lang or 'en_US'}</field>
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!--         Share JD -->
+    <record id="mail_template_share_jds" model="mail.template">
+        <field name="name">Share JD to Candidate</field>
+       <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="partner_to">{{ object.partner_id != False and object.partner_id.id }}</field>
+        <field name="email_to">${object.email_from}</field>
+        <field name="subject">Job Description</field>
+        <field name="body_html" type="html">
+            <div>
+                <div>
+                    <p>Dear<t t-out="object.partner_name"/>,
+                    </p>
+                    <p>Here is the Job Description for this role:</p>
+
+                    <p>
+                        <t t-out="object.job_description"/>
+                    </p>
+                    <br/>
+                    <p>Best regards,<br/>HR Team
+                    </p>
+                </div>
+                <br/>
+                <t t-out="object.company_id.name"/>
+                <br/>
+            </div>
+        </field>
+        <field name="lang">${object.partner_id.lang or 'en_US'}</field>
+        <field name="auto_delete" eval="False"/>
+    </record>
+
+    <!-- Interview Result -->
+    <record id="mail_template_interview_result" model="mail.template">
+        <field name="name">Interview Result Notification</field>
+        <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="partner_to">{{ object.partner_id != False and object.partner_id.id }}</field>
+        <field name="email_to">${object.email_from}</field>
+        <field name="subject">Interview Update for</field>
+
+        <field name="body_html" type="html">
+            <div style="padding: 24px; background-color: white; color: #454748;">
+                <p>
+                    Dear<t t-out="object.partner_name or 'Candidate'"/>,
+                </p>
+
+                <t t-if="object.interview_result">
+                    <p>
+                        Your interview result:
+                        <strong>
+                            <t t-out="object.interview_result"/>
+                        </strong>
+                    </p>
+                </t>
+                <t t-else="">
+                    <p>
+                        The interview result is not yet available. We will get back to you soon.
+                    </p>
+                </t>
+
+                <p>
+                    Thank you for your time and interest in joining us.
+                </p>
+
+                <p>
+                    Regards,
+                    <br/>
+                    HR Team
+                </p>
+            </div>
+        </field>
+
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+    <!-- Interview Reminder -->
+    <record id="mail_template_interview_reminder" model="mail.template">
+        <field name="name">Interview Reminder Email</field>
+        <field name="model_id" ref="hr_recruitment.model_hr_applicant"/>
+        <field name="partner_to">{{ object.partner_id != False and object.partner_id.id }}</field>
+        <field name="email_to">${object.email_from}</field>
+        <field name="subject">Interview Reminder</field>
+
+        <field name="body_html" type="html">
+            <div style="padding: 24px; background-color: white; color: #454748;">
+                <p>
+                    Dear<t t-out="object.partner_name or 'Candidate'"/>,
+                </p>
+
+                <p>
+                    This is a reminder for your upcoming interview for the position
+                    <strong>
+                        <t t-out="object.job_id.name"/>
+                    </strong>
+                    .
+                </p>
+
+                <ul>
+                    <t t-if="object.interview_date">
+                        <li>
+                            <strong>Date:</strong>
+                            <t t-out="object.interview_date"/>
+                        </li>
+                    </t>
+                    <t t-if="object.interview_time">
+                        <li>
+                            <strong>Time:</strong>
+                            <t t-out="object.interview_time"/>
+                        </li>
+                    </t>
+                    <t t-if="object.interview_location">
+                        <li>
+                            <strong>Location:</strong>
+                            <t t-out="object.interview_location"/>
+                        </li>
+                    </t>
+                </ul>
+
+                <p>
+                    Please be on time. Contact us if you have any questions.
+                </p>
+
+                <p>
+                    Regards,
+                    <br/>
+                    HR Team
+                </p>
+            </div>
+        </field>
+
+        <field name="auto_delete" eval="True"/>
+    </record>
+
+
+</odoo>

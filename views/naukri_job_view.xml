@@ -1,0 +1,42 @@
+<odoo>
+    <!--  <record id="view_hr_job_naukri_form" model="ir.ui.view">-->
+    <!--    <field name="name">hr.job.form.naukri</field>-->
+    <!--    <field name="model">hr.job</field>-->
+    <!--    <field name="inherit_id" ref="hr_recruitment.view_hr_job_form"/>-->
+    <!--    <field name="arch" type="xml">-->
+    <!--      <xpath expr="//header" position="inside">-->
+    <!--        <button name="action_post_to_naukri" type="object" string="Post to Naukri"-->
+    <!--                class="btn-primary"/>-->
+    <!--      </xpath>-->
+    <!--      <xpath expr="//sheet" position="inside">-->
+    <!--        <group string="Naukri Info">-->
+    <!--          <field name="naukri_posted"/>-->
+    <!--          <field name="naukri_response"/>-->
+    <!--        </group>-->
+    <!--      </xpath>-->
+    <!--    </field>-->
+    <!--  </record>-->
+    <record id="view_hr_job_kanban_inherit" model="ir.ui.view">
+        <field name="name">hr.job.kanban.naukri</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[contains(@class, 'o_kanban_card_header')]" position="inside">
+                <div>
+                    <button type="object"
+                            name="action_post_to_naukri"
+                            string="Post to Naukri"
+                            class="btn btn-sm btn-primary"/>
+                    <button type="object"
+                            name="action_post_to_linkedin"
+                            string="Post to LinkedIn"
+                            class="btn btn-sm btn-info"/>
+                    <button type="object"
+                            name="action_post_to_indeed"
+                            string="Post to Indeed"
+                            class="btn btn-sm btn-secondary"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

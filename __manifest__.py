@@ -1,0 +1,21 @@
+{
+    'name': 'Naukri API Integration',
+    'version': '1.0',
+    'summary': 'Post Jobs to Naukri from Odoo Recruitment',
+    'depends': ['hr','website_payment','hr_recruitment','mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/hr_pre_on_boarding_views.xml',
+        'views/pre_onboarding_form_public.xml',
+        'views/naukri_job_view.xml',
+        'views/hr_applicant_views.xml',
+        # 'views/hr_employee_views.xml',
+        'views/hr_emp_views.xml',
+        'views/email_wizard_views.xml',
+        'views/send_template_wizard_views.xml',
+        'reports/offer_letter_template.xml',
+        'reports/report_action.xml',
+        'data/mail_template.xml',
+    ],
+    'installable': True,
+}

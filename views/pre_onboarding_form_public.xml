@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="pre_onboarding_template">
+    <t t-call="website.layout">
+        <div class="container shadow-lg p-5 mt-5 mb-5 bg-white rounded"
+             style="max-width: 900px; border: 1px solid #ddd;">
+
+           <!-- Header with Logo -->
+            <div class="d-flex align-items-center justify-content-center mb-4" style="position: relative;">
+                <!-- Logo on the left -->
+                <div style="position: absolute; left: 0;">
+                    <img src="https://www.techrajendra.com/images/logo-dark.png"
+                         alt="Company Logo"
+                         style="height:80px; width:auto;"/>
+                </div>
+
+                <!-- Title Center -->
+                <div class="text-center w-100">
+                    <h2 style="font-weight:700; text-transform:uppercase; color:#222;">
+                        RAJENDRA MANAGEMENT PVT. LTD.
+                    </h2>
+                    <p style="font-weight:bold; letter-spacing:1px; color:#444;">
+                        CHECKLIST FOR THE JOINING FORMALITIES
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Form -->
+            <form t-attf-action="/pre-onboarding/submit" method="post"
+                  enctype="multipart/form-data">
+                <input type="hidden" name="onboarding_id" t-att-value="record.id"/>
+
+                <!-- Personal Details -->
+                <div class="border p-4 rounded mb-4" style="background-color:#f9f9f9;">
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label class="fw-bold">Name</label>
+                            <input type="text" name="name" class="form-control border-0 border-bottom border-secondary" t-att-value="record.name"
+                                   placeholder="Enter your full name" required="required"/>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="fw-bold">Designation</label>
+                            <input type="text" name="designation" class="form-control border-0 border-bottom border-secondary"
+                                   placeholder="Enter your designation" t-att-value="record.designation" required="required"/>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="fw-bold">Department</label>
+                            <input type="text" name="department" class="form-control border-0 border-bottom border-secondary"
+                                   placeholder="Department" t-att-value="record.department" required="required"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="fw-bold">Salary (CTC)</label>
+                            <input type="text" name="salary" class="form-control border-0 border-bottom border-secondary"
+                                   placeholder="Annual CTC" t-att-value="record.salary" required="required"/>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="fw-bold">Location</label>
+                            <input type="text" name="location" class="form-control border-0 border-bottom border-secondary"
+                                   placeholder="Job location" required="required"/>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="fw-bold">D.O.J reported on duty</label>
+                            <input type="date" name="date_of_joining" class="form-control border-0 border-bottom border-secondary"
+                                  t-att-value="record.date_of_joining" required="required"/>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Documents Upload -->
+                <div class="border p-4 rounded mb-4" style="background-color:#f9f9f9;">
+                    <h5 class="fw-bold mb-3" style="color:#333;">Upload Required Documents</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                           <label class="fw-bold">Duly Signed copy of Employee LOA </label>
+                          <input type="file" name="duly_sign_copy_of_emp" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">Resume duly signed with photo</label>
+                          <input type="file" name="resume_duly_sign_with_photo" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">All educational certificates and Marks sheet 10th, 12th &amp; Graduation</label>
+                          <input type="file" name="all_educational_certificate_with_10th_12th" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">All Merit certificates/ Diploma mark sheet  </label>
+                          <input type="file" name="all_merits_certificate_diploma" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">Acceptance of Resignation letter  </label>
+                          <input type="file" name="acceptance_of_resign_letter" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">Copy of Relieving letter/ Exp. Certificate  </label>
+                          <input type="file" name="copy_of_relieving_letter" class="form-control form-control-sm"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">Last 3 month salary slip / salary certificate  </label>
+                          <input type="file" name="last_three_months_salary_slip" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">6 months bank statement   </label>
+                          <input type="file" name="six_month_bank_statement" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">Previous company Form 16 / PAN Card   </label>
+                          <input type="file" name="previous_company_form16" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">1 Address Proof – D.L / Voter ID / Aadhar Card  </label>
+                          <input type="file" name="address_proof" class="form-control form-control-sm" required="required"/>
+                       </div>
+                        <div class="col-md-6">
+                           <label class="fw-bold">1 ID proof -  PAN card / Passport  </label>
+                          <input type="file" name="id_proof" class="form-control form-control-sm" required="required"/>
+                       </div>
+                         <div class="col-md-6">
+                           <label class="fw-bold">Latest Four passport size color photograph  </label>
+                          <input type="file" name="passport_size_photo" class="form-control form-control-sm" required="required"/>
+                       </div>
+                         <div class="col-md-6">
+                           <label class="fw-bold">Acceptance of Offer letter  </label>
+                          <input type="file" name="acceptance_of_offer_letter" class="form-control form-control-sm" required="required"/>
+                       </div>
+                         <div class="col-md-6">
+                           <label class="fw-bold">Fitness Certificate  </label>
+                          <input type="file" name="fitness_certificate" class="form-control form-control-sm" />
+                       </div>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-success px-4 py-2 me-2 shadow-sm"
+                            style="border-radius:25px; font-weight:600;">
+                        <i class="fa fa-check-circle me-1"></i> Submit
+                    </button>
+                           <button type="button"
+                            class="btn btn-danger px-4 py-2 shadow-sm"
+                            style="border-radius:25px; font-weight:600;"
+                            t-attf-onclick="
+                                if (confirm('Are you sure you want to reject the offer?')) {
+                                    window.location.href = '/pre-onboarding/reject?id=#{record.id}';
+                                }">
+                        <i class="fa fa-times-circle me-1"></i> Reject Offer
+                    </button>
+
+
+                </div>
+            </form>
+        </div>
+    </t>
+</template>
+
+
+
+    <template id="pre_onboarding_thanks" name="Thanks">
+        <t t-call="website.layout">
+            <div class="container mt-5">
+                <span class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary"/><br/>
+                <h2 style="text-align:center;">Thank you!</h2>
+                <p style="text-align:center;">Your response has been recorded.</p>
+            </div>
+        </t>
+    </template>
+</odoo>

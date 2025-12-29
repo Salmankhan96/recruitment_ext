@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_applicant_form_resume_inherit" model="ir.ui.view">
+        <field name="name">hr.applicant.form.resume.inherit</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Add the computed show_send_offer field just after email_from -->
+            <xpath expr="//field[@name='email_from']" position="after">
+                <field name="show_send_offer" invisible="1"/>
+            </xpath>
+
+             <xpath expr="//field[@name='email_cc']" position="attributes">
+                <attribute name="groups"/>
+            </xpath>
+
+            <!-- Header buttons: Parse Resume, Print, Approve, Send Offer -->
+            <xpath expr="//header" position="inside">
+                <button name="action_parse_resume"
+                        type="object"
+                        string="Parse Resume"
+                        class="btn-primary"/>
+                <button name="compute_resume_ratings"
+                        type="object"
+                        string="Compute Ratings"
+                        class="btn-primary"/>
+                <button name="action_print_offer_letter"
+                        type="object"
+                        string="Print Offer Letter"
+                        class="btn-secondary"
+                        invisible=""/>
+
+                <button name="action_send_offer_letter_email"
+                        type="object"
+                        string="Request Documents"
+                        class="btn-primary"
+                        groups="hr.group_hr_user"
+                        visibility="['show_send_offer', '=', True]"/>
+                <button name="action_open_send_template_wizard"
+                        type="object"
+                        string="Send Email"
+                        class="btn-primary"
+                        icon="fa-envelope"/>
+            </xpath>
+
+            <!-- Place your custom fields as needed -->
+            <xpath expr="//field[@name='type_id']" position="after">
+                <field name="note"/>
+                <field name="state" invisible="1"/>
+                <field name="resume_attachment" filename="resume_filename" widget="binary"/>
+                <field name="candidate_address"/>
+
+            </xpath>
+
+
+           <xpath expr="//field[@name='job_id']/.." position="before">
+                <group string="Requirements" style="color:#ff0042;">
+                    <field name="key_skills_require" widget="many2many_tags"/>
+                    <field name="education_required" widget="many2many_tags"/>
+                    <field name="experience_required" widget="many2many_tags"/>
+                </group>
+                 <group string="Resume Ratings" style="color:#ff0042;">
+                    <field name="education_rating"/>
+                    <field name="experience_rating"/>
+                    <field name="skill_rating"/>
+                </group>
+                <group string="Human Resource" style="color:blue;">
+                    <field name="hr_name"/>
+                    <field name="offer_date"/>
+                    <field name="salary_package"/>
+                    <field name="office_address"/>
+                    <field name="joining_date"/>
+                    <field name="job_description"/>
+                    <field name="interview_date"/>
+                    <field name="interview_time"/>
+                    <field name="interview_location"/>
+                    <field name="interview_result"/>
+                </group>
+               <group string="Other Info" style="color:blue;">
+                    <field name="education_details"/>
+                    <field name="experience_details"/>
+                    <field name="experience_in_years"/>
+                    <field name="skills_details"/>
+                    <field name="certification_details"/>
+                    <field name="project_details"/>
+                </group>
+            </xpath>
+
+
+        </field>
+    </record>
+</odoo>
