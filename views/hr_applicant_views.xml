@@ -9,39 +9,54 @@
             <!-- Add the computed show_send_offer field just after email_from -->
             <xpath expr="//field[@name='email_from']" position="after">
                 <field name="show_send_offer" invisible="1"/>
+                <field name="stage_id" invisible="1"/>
             </xpath>
 
              <xpath expr="//field[@name='email_cc']" position="attributes">
                 <attribute name="groups"/>
             </xpath>
 
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_show_sign"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square"
+                        >
+                    <span>Sign</span>
+                </button>
+            </xpath>
+
+
+
             <!-- Header buttons: Parse Resume, Print, Approve, Send Offer -->
             <xpath expr="//header" position="inside">
                 <button name="action_parse_resume"
                         type="object"
                         string="Parse Resume"
-                        class="btn-primary"/>
+                        class="btn-primary" invisible="stage_id in [3,4,5,6]"/>
                 <button name="compute_resume_ratings"
                         type="object"
                         string="Compute Ratings"
-                        class="btn-primary"/>
+                        class="btn-primary" invisible="stage_id in [3,4,5,6]"/>
                 <button name="action_print_offer_letter"
                         type="object"
                         string="Print Offer Letter"
                         class="btn-secondary"
-                        invisible=""/>
+                        invisible="stage_id in [1,2,3,4,5]"/>
 
                 <button name="action_send_offer_letter_email"
                         type="object"
                         string="Request Documents"
                         class="btn-primary"
                         groups="hr.group_hr_user"
-                        visibility="['show_send_offer', '=', True]"/>
+                        visibility="['show_send_offer', '=', True]"
+                        invisible="stage_id in [1,2,3,4,5]"/>
                 <button name="action_open_send_template_wizard"
                         type="object"
                         string="Send Email"
                         class="btn-primary"
-                        icon="fa-envelope"/>
+                        icon="fa-envelope"
+                        invisible="stage_id in [1,2,3,4,5]"/>
             </xpath>
 
             <!-- Place your custom fields as needed -->

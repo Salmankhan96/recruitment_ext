@@ -51,3 +51,18 @@ class HrPreOnboarding(models.Model):
     def action_reject(self):
         self.ensure_one()
         self.state = 'rejected'
+
+    def action_show_sign(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Sign Documents',
+            'res_model': 'sign.request',
+            'view_mode': 'tree,form',
+            'domain': [
+                ('reference', '=', f'{self._name},{self.id}')
+            ],
+            'context': {
+                'default_reference': f'{self._name},{self.id}',
+            }
+        }

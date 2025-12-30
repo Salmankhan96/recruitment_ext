@@ -98,6 +98,21 @@ class HrApplicant(models.Model):
                 raise UserError("Only HR Managers can approve.")
             rec.state = 'approved'
 
+    def action_show_sign(self):
+        self.ensure_one()
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Sign Documents',
+            'res_model': 'sign.request',
+            'view_mode': 'tree,form',
+            'domain': [
+                ('reference', '=', f'{self._name},{self.id}')
+            ],
+            'context': {
+                'default_reference': f'{self._name},{self.id}',
+            }
+        }
+
     def action_parse_resume(self):
         for rec in self:
             if not rec.resume_attachment:

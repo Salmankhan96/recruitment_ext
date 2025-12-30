@@ -22,6 +22,16 @@
       <field name="arch" type="xml">
         <form string="Pre-Onboarding">
           <sheet>
+              <div class="oe_button_box" name="button_box">
+                    <button name="action_show_sign"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-pencil-square-o"
+                            invisible="not id">
+                        <span>Sign</span>
+                    </button>
+                </div>
+
             <group>
                 <group>
                     <field name="name"/>
