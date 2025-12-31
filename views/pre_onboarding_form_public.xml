@@ -92,8 +92,8 @@
                           <input type="file" name="all_merits_certificate_diploma" class="form-control form-control-sm" required="required"/>
                        </div>
                         <div class="col-md-6">
-                           <label class="fw-bold">Acceptance of Resignation letter  </label>
-                          <input type="file" name="acceptance_of_resign_letter" class="form-control form-control-sm" required="required"/>
+                           <label class="fw-bold">Copy of Resignation letter  </label>
+                          <input type="file" name="acceptance_of_resign_letter" class="form-control form-control-sm" />
                        </div>
                         <div class="col-md-6">
                            <label class="fw-bold">Copy of Relieving letter/ Exp. Certificate  </label>
@@ -104,12 +104,12 @@
                           <input type="file" name="last_three_months_salary_slip" class="form-control form-control-sm" required="required"/>
                        </div>
                         <div class="col-md-6">
-                           <label class="fw-bold">6 months bank statement   </label>
+                           <label class="fw-bold">3 months bank statement   </label>
                           <input type="file" name="six_month_bank_statement" class="form-control form-control-sm" required="required"/>
                        </div>
                         <div class="col-md-6">
                            <label class="fw-bold">Previous company Form 16 / PAN Card   </label>
-                          <input type="file" name="previous_company_form16" class="form-control form-control-sm" required="required"/>
+                          <input type="file" name="previous_company_form16" class="form-control form-control-sm" />
                        </div>
                         <div class="col-md-6">
                            <label class="fw-bold">1 Address Proof – D.L / Voter ID / Aadhar Card  </label>
@@ -120,12 +120,12 @@
                           <input type="file" name="id_proof" class="form-control form-control-sm" required="required"/>
                        </div>
                          <div class="col-md-6">
-                           <label class="fw-bold">Latest Four passport size color photograph  </label>
+                           <label class="fw-bold">One passport size photograph  </label>
                           <input type="file" name="passport_size_photo" class="form-control form-control-sm" required="required"/>
                        </div>
                          <div class="col-md-6">
                            <label class="fw-bold">Acceptance of Offer letter  </label>
-                          <input type="file" name="acceptance_of_offer_letter" class="form-control form-control-sm" required="required"/>
+                          <input type="file" name="acceptance_of_offer_letter" class="form-control form-control-sm"/>
                        </div>
                          <div class="col-md-6">
                            <label class="fw-bold">Fitness Certificate  </label>
