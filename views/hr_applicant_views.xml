@@ -42,7 +42,7 @@
                         type="object"
                         string="Print Offer Letter"
                         class="btn-secondary"
-                        invisible="stage_id in [1,2,3,4,5]"/>
+                        invisible="stage_id in [1,2,3,4]"/>
 
                 <button name="action_send_offer_letter_email"
                         type="object"
