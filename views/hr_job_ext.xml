@@ -1,0 +1,44 @@
+<odoo>
+    <record id="hr_job_form_add_custom_page" model="ir.ui.view">
+        <field name="name">hr.job.form.add.custom.page</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Add new page inside notebook -->
+            <xpath expr="//notebook" position="inside">
+                <page string="UI Information" name="ui_information">
+                    <group>
+                        <group>
+                           <field name="ui_responsibility"/>
+                           <field name="l1_responsibility"/>
+                           <field name="l2_responsibility"/>
+                           <field name="l3_responsibility"/>
+                           <field name="l4_responsibility"/>
+                           <field name="l5_responsibility"/>
+                        </group>
+
+                        <group>
+                            <field name="ui_must_have"/>
+                             <field name="l1_must_have"/>
+                             <field name="l2_must_have"/>
+                             <field name="l3_must_have"/>
+                             <field name="l4_must_have"/>
+                             <field name="l5_must_have"/>
+                        </group>
+                         <separator string="-"/>
+                        <group>
+                            <field name="ui_nice_to_have"/>
+                             <field name="l1_nice_to_have"/>
+                             <field name="l2_nice_to_have"/>
+                             <field name="l3_nice_to_have"/>
+                             <field name="l4_nice_to_have"/>
+                             <field name="l5_nice_to_have"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

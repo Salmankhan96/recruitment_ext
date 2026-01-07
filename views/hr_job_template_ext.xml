@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template
+        id="job_detail_replace_website_description"
+        inherit_id="website_hr_recruitment.detail"
+        name="Job Detail: Replace Website Description"
+    >
+
+        <!-- Replace website_description with description -->
+        <xpath expr="//div[@t-field='job.website_description']" position="replace">
+            <!-- Description text and ratings -->
+            <section class="pt32">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 pb32" itemprop="description">
+                            <p class="lead">
+                                <t t-out="job.description"/>
+                            </p>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1 pb32">
+                            <div class="s_rating pb8" data-vcss="001" data-icon="fa-star" data-snippet="s_rating">
+                                <h6 class="s_rating_title">Customer Relationship</h6>
+                                <div class="s_rating_icons o_not_editable">
+                                    <span class="s_rating_active_icons text-primary">
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                    </span>
+                                    <span class="s_rating_inactive_icons text-primary">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="s_rating pb8" data-vcss="001" data-icon="fa-star" data-snippet="s_rating">
+                                <h6 class="s_rating_title">Personal Evolution</h6>
+                                <div class="s_rating_icons o_not_editable">
+                                    <span class="s_rating_active_icons text-primary">
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                    </span>
+                                    <span class="s_rating_inactive_icons text-primary">
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="s_rating pb8" data-vcss="001" data-icon="fa-star" data-snippet="s_rating">
+                                <h6 class="s_rating_title">Autonomy</h6>
+                                <div class="s_rating_icons o_not_editable">
+                                    <span class="s_rating_active_icons text-primary">
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                    </span>
+                                    <span class="s_rating_inactive_icons text-primary">
+                                        <i class="fa fa-star-o"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="s_rating pb8" data-vcss="001" data-icon="fa-star" data-snippet="s_rating">
+                                <h6 class="s_rating_title">Administrative Work</h6>
+                                <div class="s_rating_icons o_not_editable">
+                                    <span class="s_rating_active_icons text-primary">
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                    </span>
+                                    <span class="s_rating_inactive_icons text-primary">
+                                        <i class="fa fa-star-o"/>
+                                        <i class="fa fa-star-o"/>
+                                        <i class="fa fa-star-o"/>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="s_rating pb8" data-vcss="001" data-icon="fa-star" data-snippet="s_rating">
+                                <h6 class="s_rating_title">Technical Expertise</h6>
+                                <div class="s_rating_icons o_not_editable">
+                                    <span class="s_rating_active_icons text-primary">
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                        <i class="fa fa-star"/>
+                                    </span>
+                                    <span class="s_rating_inactive_icons text-primary">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Responsabilities, Must Have and Nice to have -->
+            <section class="s_comparisons pt24 pb24 bg-200" data-snippet="s_comparisons" style="background-image: url('https://cdn.hetzner.com/assets/Uploads/object-storage_website_detail.jpg');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb16" data-name="Box">
+                            <div class="card text-bg-primary">
+                                <h4 class="card-header"><t t-out="job.ui_responsibility"/></h4>
+                                <ul class="list-group list-group-flush" itemprop="responsibilities">
+                                    <t t-if="job.l1_responsibility">
+                                        <li class="list-group-item"><t t-out="job.l1_responsibility"/></li>
+                                    </t>
+                                    <t t-if="job.l2_responsibility">
+                                        <li class="list-group-item"><t t-out="job.l2_responsibility"/></li>
+                                    </t>
+                                    <t t-if="job.l3_responsibility">
+                                        <li class="list-group-item"><t t-out="job.l3_responsibility"/></li>
+                                    </t>
+                                    <t t-if="job.l4_responsibility">
+                                        <li class="list-group-item"><t t-out="job.l4_responsibility"/></li>
+                                    </t>
+                                     <t t-if="job.l5_responsibility">
+                                        <li class="list-group-item"><t t-out="job.l5_responsibility"/></li>
+                                    </t>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb16" data-name="Box">
+                            <div class="card text-bg-primary">
+                                <h4 class="card-header"><t t-out="job.ui_must_have"/></h4>
+                                <ul class="list-group list-group-flush" itemprop="skills">
+                                    <t t-if="job.l1_must_have">
+                                        <li class="list-group-item"><t t-out="job.l1_must_have"/></li>
+                                    </t>
+                                    <t t-if="job.l2_must_have">
+                                        <li class="list-group-item"><t t-out="job.l2_must_have"/></li>
+                                    </t>
+                                    <t t-if="job.l3_must_have">
+                                        <li class="list-group-item"><t t-out="job.l3_must_have"/></li>
+                                    </t>
+                                    <t t-if="job.l4_must_have">
+                                        <li class="list-group-item"><t t-out="job.l4_must_have"/></li>
+                                    </t>
+                                    <t t-if="job.l5_must_have">
+                                        <li class="list-group-item"><t t-out="job.l5_must_have"/></li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 s_col_no_bgcolor pt16 pb16" data-name="Box">
+                            <div class="card text-bg-primary">
+                                <h4 class="card-header"><t t-out="job.ui_nice_to_have"/></h4>
+                                <ul class="list-group list-group-flush">
+                                    <t t-if="job.l1_nice_to_have">
+                                        <li class="list-group-item"><t t-out="job.l1_nice_to_have"/></li>
+                                    </t>
+                                    <t t-if="job.l2_nice_to_have">
+                                        <li class="list-group-item"><t t-out="job.l2_nice_to_have"/></li>
+                                    </t>
+                                    <t t-if="job.l3_nice_to_have">
+                                        <li class="list-group-item"><t t-out="job.l3_nice_to_have"/></li>
+                                    </t>
+                                    <t t-if="job.l4_nice_to_have">
+                                        <li class="list-group-item"><t t-out="job.l4_nice_to_have"/></li>
+                                    </t>
+                                    <t t-if="job.l5_nice_to_have">
+                                        <li class="list-group-item"><t t-out="job.l5_nice_to_have"/></li>
+                                    </t>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- What's great -->
+            <section class="s_comparisons pt24 pb24" data-snippet="s_comparisons">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-sm-7 pb40">
+                            <h2>What's great in the job?</h2>
+                            <br/>
+                            <ul class="lead">
+                                <li>Great team of smart people, in a friendly and open culture</li>
+                                <li>No dumb managers, no stupid tools to use, no rigid working hours</li>
+                                <li>No waste of time in enterprise processes, real responsibilities and autonomy</li>
+                                <li>Expand your knowledge of various business industries</li>
+                                <li>Create content that will help our users on a daily basis</li>
+                                <li>Real responsibilities and challenges in a fast evolving company</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </xpath>
+
+    </template>
+
+
+</odoo>
